@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>댓글 목록</h1>
+  <% comments.forEach(function(comment) { %>
+    <p><%= comment.content %></p>
+    <form action="/update/<%= comment.id %>" method="post">
+      <input type="text" id="lname" name="content"><br><br>
+      <input type="submit" value="수정하기">
+    </form>
+    <form action="/delete/<%= comment.id %>" method="post">
+      <input type="submit" value="삭제하기">
+    </form>
+  <% }); %>
+  <hr>
+  <form action="/create" method="post">
+    <input type="text" id="lname" name="content"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
